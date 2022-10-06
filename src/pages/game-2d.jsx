@@ -6,10 +6,6 @@ import MainLayout from "../components/layouts/MainLayout";
 const Game2DPage = () => {
   return (
     <MainLayout>
-      <Head>
-        <link rel="prefetch" href="/wood-tile.png" />
-        <link rel="prefetch" href="/mole-wood-tile.png" />
-      </Head>
       <Game2D />
     </MainLayout>
   );
