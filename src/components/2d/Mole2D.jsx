@@ -4,12 +4,11 @@ import { useGameStore } from "../../stores/gameStore";
 import {useIdleTimer} from "react-idle-timer";
 
 const Mole2D = ({ id }) => {
-  const { activeMoleIndex, pointsPerHit, hit, updateScore, resetScore } = useGameStore(
+  const { activeMoleIndex, pointsPerHit, hit, resetScore } = useGameStore(
     (state) => ({
       activeMoleIndex: state.activeMoleIndex,
       pointsPerHit: state.pointsPerHit,
       hit: state.hit,
-      updateScore: state.updateScore,
       resetScore: state.resetScore,
     }),
     shallow
@@ -42,7 +41,6 @@ const Mole2D = ({ id }) => {
             hit(id);
             setShowScore(true);
           };
-          updateScore(id);
           start()
         }}
       >

@@ -13,13 +13,11 @@ const Game2D = () => {
 
   const router = useRouter();
 
-  const { points, timeLeft, startGame, score, maxScore } = useGameStore(
+  const { points, timeLeft, startGame} = useGameStore(
     (state) => ({
       points: state.points,
       timeLeft: state.timeLeft,
       startGame: state.startGame,
-      score: state.score,
-      maxScore: state.maxScore,
     }),
     shallow
   );

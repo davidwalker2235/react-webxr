@@ -22,7 +22,7 @@ const Intro2D = ({onReady}) => {
       "[SYSTEM] The 2D simulator is ready! Please press the START button to start the simulation. WARNING: Proceed at your own risk, good luck.",
     ]}
     wrapper="p"
-    speed={80}
+    speed={100}
   />
 }
 
