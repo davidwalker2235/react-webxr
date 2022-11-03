@@ -21,7 +21,7 @@ const useGameStore = create((set, get) => ({
   hit: () => {
     const gameStarted = get().gameStarted;
     if (gameStarted) {
-      set((state) => ({ points: state.points + 10 }));
+      set((state) => ({ points: state.points + CONFIG.pointsPerHit }));
       get().nextRound();
     }
   },

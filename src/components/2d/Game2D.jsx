@@ -3,21 +3,22 @@ import Button from "../common/Button/Button";
 import shallow from "zustand/shallow";
 import Intro2D from "./Intro2D";
 import {useGameStore} from "../../stores/gameStore";
+import Label2D from "./Label2D";
+import BoardGame2D from "./BoardGame2D";
 
 const Game2D = () => {
-  //Changes and detects if the game is running
   const [isGameInit, gameInit] = useState(false);
   const [startButtonReady, setStartButtonReady] = useState(false);
 
-  //Get the info from the store and re-render the component when any prop is changed
-  const {startGame} = useGameStore(
+  const {startGame, points, timeLeft} = useGameStore(
     (state) => ({
+      points: state.points,
+      timeLeft: state.timeLeft,
       startGame: state.startGame,
     }),
     shallow
   );
 
-  //Init the game using the startGame() function from store
   const initGame = () => {
     gameInit(true);
     startGame();
@@ -39,7 +40,21 @@ const Game2D = () => {
       `}</style>
     </div>
     ) : (
-      <div>Game started!</div>
+    <div>
+      <div className="info">
+        <Label2D label="Score" value={points} />
+        <Label2D label="Time" value={timeLeft} align="right" />
+      </div>
+      <BoardGame2D />
+      <style jsx>{`
+        .info {
+          display: flex;
+          flex-flow: row nowrap;
+          width: 100%;
+          justify-content: space-between;
+        }
+      `}</style>
+    </div>
     );
 };
 
