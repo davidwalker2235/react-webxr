@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
+import { useRouter } from "next/router";
 import Button from "../common/Button/Button";
 import shallow from "zustand/shallow";
 import Intro2D from "./Intro2D";
@@ -9,6 +10,7 @@ import BoardGame2D from "./BoardGame2D";
 const Game2D = () => {
   const [isGameInit, gameInit] = useState(false);
   const [startButtonReady, setStartButtonReady] = useState(false);
+  const router = useRouter();
 
   const {startGame, points, timeLeft} = useGameStore(
     (state) => ({
@@ -23,6 +25,15 @@ const Game2D = () => {
     gameInit(true);
     startGame();
   };
+
+  // redirect to game-result page when the time is over
+  useEffect(() => {
+    if (isGameInit && timeLeft == 0) {
+      router.push("/game-result").then(() => {
+        gameInit(false);
+      });
+    }
+  }, [isGameInit, router, timeLeft]);
 
   return !isGameInit ? (
     <div className="start-btn">
