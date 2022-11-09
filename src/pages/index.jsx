@@ -2,6 +2,7 @@ import Head from "next/head";
 import Button from "../components/common/Button/Button";
 import { useRouter } from "next/router";
 import MainLayout from "../components/layouts/MainLayout";
+import HighScore from "../components/high-score/HighScore";
 
 export default function Home() {
   const router = useRouter();
@@ -36,6 +37,9 @@ export default function Home() {
           >
             Check simulator
           </Button>
+        </div>
+        <div className="margin-top">
+          <HighScore />
         </div>
       </MainLayout>
       <style jsx>{`

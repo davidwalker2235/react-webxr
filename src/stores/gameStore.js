@@ -2,7 +2,7 @@ import create from "zustand";
 
 const CONFIG = {
   pointsPerHit: 20,
-  totalTime: 40000,
+  totalTime: 10000,
   roundTime: 1000,
   moles: 9,
 };

@@ -26,7 +26,6 @@ const Game2D = () => {
     startGame();
   };
 
-  // redirect to game-result page when the time is over
   useEffect(() => {
     if (isGameInit && timeLeft == 0) {
       router.push("/game-result").then(() => {
