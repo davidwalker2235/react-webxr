@@ -2,7 +2,7 @@ import create from "zustand";
 
 const CONFIG = {
   pointsPerHit: 20,
-  totalTime: 40000,
+  totalTime: 10000,
   roundTime: 1000,
   moles: 9,
 };
@@ -20,7 +20,7 @@ const useGameStore = create((set, get) => ({
   hit: () => {
     const gameStarted = get().gameStarted;
     if (gameStarted) {
-      set((state) => ({ points: state.points + 10 }));
+      set((state) => ({ points: state.points + CONFIG.pointsPerHit }));
       get().nextRound();
     }
   },

@@ -1,12 +1,4 @@
 import Head from "next/head";
-import {
-  Twitch,
-  Twitter,
-  Linkedin,
-  Youtube,
-  Instagram,
-  GitHub,
-} from "react-feather";
 import Button from "../components/common/Button/Button";
 import HighScore from "../components/high-score/HighScore";
 import { useRouter } from "next/router";
@@ -48,76 +40,6 @@ export default function Home() {
             Check simulator
           </Button>
         </div>
-
-        <div className="margin-top">
-          <p>
-            Do you want to check out what our engineers (we call them ERNIans)
-            are up to? Check out our social media profiles.
-          </p>
-          <ul className="social-list">
-            <li>
-              <a
-                className="github"
-                href="https://github.com/ERNI-Academy"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <GitHub color="white" /> <span>Github</span>
-              </a>
-            </li>
-            <li>
-              <a
-                className="twitch"
-                href="https://www.twitch.tv/erni_academy"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Twitch color="#6441a5" /> <span>Twitch</span>
-              </a>
-            </li>
-            <li>
-              <a
-                className="youtube"
-                href="https://www.youtube.com/channel/UCkdDcxjml85-Ydn7Dc577WQ"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Youtube color="#ff0000" /> <span>Youtube</span>
-              </a>
-            </li>
-            <li>
-              <a
-                className="linkedin"
-                href="https://www.linkedin.com/company/erni/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Linkedin color="#0e76a8" /> <span>Linkedin</span>
-              </a>
-            </li>
-            <li>
-              <a
-                className="twitter"
-                href="https://twitter.com/ERNI"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Twitter color="#1da1f2" /> <span>Twitter</span>
-              </a>
-            </li>
-            <li>
-              <a
-                className="instagram"
-                href="https://www.instagram.com/ernigroup"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Instagram color="#c13584" /> <span>Instagram</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-
         <div className="margin-top">
           <HighScore />
         </div>
