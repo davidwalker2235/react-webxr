@@ -3,9 +3,12 @@ import Button from "../components/common/Button/Button";
 import { useRouter } from "next/router";
 import MainLayout from "../components/layouts/MainLayout";
 import HighScore from "../components/high-score/HighScore";
+import useVR from "../hooks/useVR";
 
 export default function Home() {
   const router = useRouter();
+  // Use the useVR hook for VR detection
+  const { supported: vrSupport } = useVR();
   return (
     <div>
       <Head>
@@ -32,7 +35,7 @@ export default function Home() {
 
         <div className="margin-top">
           <Button
-            onClick={() => router.push("/game-2d")}
+            onClick={() => router.push(vrSupport ? "/game-3d" : "/game-2d")}
             animate
           >
             Check simulator
