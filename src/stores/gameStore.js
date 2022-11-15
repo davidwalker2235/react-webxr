@@ -13,7 +13,7 @@ const useGameStore = create((set, get) => ({
   round: 0,
   points: 0,
   time: 0,
-  timeLeft: Math.floor(CONFIG.totalTime / 1000),
+  timeLeft: Math.floor(CONFIG.totalTime / CONFIG.roundTime),
   timeoutId: null,
   pointsPerHit: CONFIG.pointsPerHit,
   score: 0,
@@ -33,7 +33,7 @@ const useGameStore = create((set, get) => ({
       round: 0,
       time: 0,
       gameStarted: true,
-      timeLeft: Math.floor(CONFIG.totalTime / 1000),
+      timeLeft: Math.floor(CONFIG.totalTime / CONFIG.roundTime),
     }));
     get().updateTimeLeft();
     get().nextRound();
@@ -46,7 +46,7 @@ const useGameStore = create((set, get) => ({
       nextTimeoutId = setTimeout(get().nextRound, CONFIG.roundTime);
     }
     const nextMoleIndex = Math.floor(
-      Math.random() * (CONFIG.moles - 1 - 0 + 1)
+      Math.random() * (CONFIG.moles)
     );
     set((state) => ({
       activeMoleIndex: nextMoleIndex,
@@ -63,7 +63,7 @@ const useGameStore = create((set, get) => ({
       } else {
         set(() => ({ gameStarted: false }));
       }
-    }, 1000);
+    }, CONFIG.roundTime);
   },
 }));
 

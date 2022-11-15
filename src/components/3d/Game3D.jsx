@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import React, { Suspense, useState } from "react";
 import { OrbitControls, Environment } from "@react-three/drei";
-import { VRButton, XR, Hands } from "@react-three/xr";
+import { VRButton, XR } from "@react-three/xr";
 import Player3D from "./Player3D";
 import { useGameStore } from "../../stores/gameStore";
 import shallow from "zustand/shallow";
