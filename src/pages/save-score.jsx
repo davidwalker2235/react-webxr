@@ -7,8 +7,8 @@ import { scoreService } from "../services/scoreService";
 import { useGameStore } from "../stores/gameStore";
 
 const SaveScorePage = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState(undefined);
+  const [email, setEmail] = useState(undefined);
   const router = useRouter();
 
   const { points } = useGameStore(
@@ -55,7 +55,7 @@ const SaveScorePage = () => {
         <div className="send-score-button">
           <Button
             onClick={onClickSaveScore}
-            disabled={!name || !points}
+            disabled={(!name || !email)}
           >
             Send Score
           </Button>
