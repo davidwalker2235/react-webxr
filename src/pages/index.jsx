@@ -5,6 +5,7 @@ import MainLayout from "../components/layouts/MainLayout";
 
 export default function Home() {
   const router = useRouter();
+  // 1 - MainLayout is a wrapper with common components in every routes
   return (
     <div>
       <Head>
@@ -12,7 +13,6 @@ export default function Home() {
         <meta name="description" content="React WebXR PoC by ERNI" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <MainLayout>
         <div>
           <p>Welcome to &quot;Mole Attack&quot; simulator!</p>
@@ -31,7 +31,9 @@ export default function Home() {
 
         <div className="margin-top">
           <Button
-            onClick={() => router.push("")}
+            onClick={
+            // 2 - The click doesn't redirect to any place
+            () => router.push("")}
             animate
           >
             Check simulator
