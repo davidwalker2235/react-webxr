@@ -5,11 +5,11 @@ import Intro2D from "./Intro2D";
 import {useGameStore} from "../../stores/gameStore";
 
 const Game2D = () => {
-  //Changes and detects if the game is running
+  // 1 - Changes and detects if the game is running
   const [isGameInit, gameInit] = useState(false);
   const [startButtonReady, setStartButtonReady] = useState(false);
 
-  //Get the info from the store and re-render the component when any prop is changed
+  // 3 - Get the info from the store and re-render the component when any prop is changed
   const {startGame} = useGameStore(
     (state) => ({
       startGame: state.startGame,
@@ -17,7 +17,7 @@ const Game2D = () => {
     shallow
   );
 
-  //Init the game using the startGame() function from store
+  // 2 - Init the game using the startGame() function from store
   const initGame = () => {
     gameInit(true);
     startGame();

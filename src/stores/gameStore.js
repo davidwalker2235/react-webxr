@@ -8,7 +8,7 @@ const CONFIG = {
 };
 
 const useGameStore = create((set, get) => ({
-  //Set the initial state
+  // 4 - Set the initial state
   gameStarted: false,
   activeMoleIndex: -1,
   round: 0,
@@ -18,16 +18,22 @@ const useGameStore = create((set, get) => ({
   timeoutId: null,
   pointsPerHit: CONFIG.pointsPerHit,
   score: 0,
+
+  // 5 - function to modify the points when a mole is hit
   hit: () => {
     const gameStarted = get().gameStarted;
     if (gameStarted) {
-      set((state) => ({ points: state.points + 10 }));
+      set((state) => ({ points: state.points + 20 }));
       get().nextRound();
     }
   },
+
+  // 7 - Reset the score
   resetScore: () => {
     set(() => ({ score: 0 }));
   },
+
+  // 8 - Reset the game info and start the countdown and the randomize mole
   startGame: () => {
     set(() => ({
       points: 0,
@@ -39,6 +45,8 @@ const useGameStore = create((set, get) => ({
     get().updateTimeLeft();
     get().nextRound();
   },
+
+  // 6 - Show a new mole in a random position every second
   nextRound: () => {
     const timeoutId = get().timeoutId;
     let nextTimeoutId = null;
@@ -47,15 +55,17 @@ const useGameStore = create((set, get) => ({
       nextTimeoutId = setTimeout(get().nextRound, CONFIG.roundTime);
     }
     const nextMoleIndex = Math.floor(
-      Math.random() * (CONFIG.moles - 1 - 0 + 1)
-    ); // Max - Min
+      Math.random() * (CONFIG.moles)
+    );
     set((state) => ({
       activeMoleIndex: nextMoleIndex,
       round: state.round + 1,
-      time: CONFIG.roundTime, //Round Time
+      time: CONFIG.roundTime,
       timeoutId: nextTimeoutId,
     }));
   },
+
+  // 9 - Update the countdown
   updateTimeLeft: () => {
     setTimeout(() => {
       if (get().timeLeft > 0) {
