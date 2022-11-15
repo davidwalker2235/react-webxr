@@ -12,7 +12,6 @@ export default function Home() {
         <meta name="description" content="React WebXR PoC by ERNI" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <MainLayout>
         <div>
           <p>Welcome to &quot;Mole Attack&quot; simulator!</p>
@@ -31,7 +30,9 @@ export default function Home() {
 
         <div className="margin-top">
           <Button
-            onClick={() => router.push("/game-2d")}
+            onClick={
+            // 1 - The router redirect to /game-2d page
+            () => router.push("/game-2d")}
             animate
           >
             Check simulator
