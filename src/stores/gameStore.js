@@ -2,13 +2,12 @@ import create from "zustand";
 
 const CONFIG = {
   pointsPerHit: 20,
-  totalTime: 40000,
+  totalTime: 10000,
   roundTime: 1000,
   moles: 9,
 };
 
 const useGameStore = create((set, get) => ({
-  //Set the initial state
   gameStarted: false,
   activeMoleIndex: -1,
   round: 0,
@@ -34,7 +33,7 @@ const useGameStore = create((set, get) => ({
       round: 0,
       time: 0,
       gameStarted: true,
-      timeLeft: Math.floor(CONFIG.totalTime / 1000), // Total time
+      timeLeft: Math.floor(CONFIG.totalTime / 1000),
     }));
     get().updateTimeLeft();
     get().nextRound();
@@ -47,12 +46,12 @@ const useGameStore = create((set, get) => ({
       nextTimeoutId = setTimeout(get().nextRound, CONFIG.roundTime);
     }
     const nextMoleIndex = Math.floor(
-      Math.random() * (CONFIG.moles - 1 - 0 + 1)
-    ); // Max - Min
+      Math.random() * (CONFIG.moles)
+    );
     set((state) => ({
       activeMoleIndex: nextMoleIndex,
       round: state.round + 1,
-      time: CONFIG.roundTime, //Round Time
+      time: CONFIG.roundTime,
       timeoutId: nextTimeoutId,
     }));
   },
