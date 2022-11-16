@@ -50,7 +50,7 @@ const useGameStore = create((set, get) => ({
     const timeoutId = get().timeoutId;
     let nextTimeoutId = null;
     if (timeoutId) clearTimeout(timeoutId);
-    if (get().timeLeft > 2) {
+    if (get().timeLeft > 1) {
       nextTimeoutId = setTimeout(get().nextRound, CONFIG.roundTime);
     }
     const nextMoleIndex = Math.floor(
