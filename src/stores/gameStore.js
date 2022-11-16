@@ -21,7 +21,6 @@ const useGameStore = create((set, get) => ({
     const gameStarted = get().gameStarted;
     if (gameStarted) {
       set((state) => ({ points: state.points + CONFIG.pointsPerHit }));
-      get().nextRound();
     }
   },
   resetScore: () => {
